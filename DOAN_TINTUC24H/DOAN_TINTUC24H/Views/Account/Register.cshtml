@@ -1,0 +1,57 @@
+﻿@model DOAN_TINTUC24H.ViewModel.RegisterVM
+
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+<h1>Đăng Kí</h1>
+@using (Html.BeginForm("Register","Account",FormMethod.Post))
+{
+    <div class="row w-50 mx-auto">
+        <div class="col-md-12">
+            @Html.LabelFor(temp => temp.UserName, "Tên đăng nhập:")
+            <div class="m-2"></div>
+            @Html.TextBoxFor(temp => temp.UserName, new { placehoder = "Tên đăng nhập", @class = "form-control" })
+            @Html.ValidationMessageFor(temp => temp.UserName)
+        </div>
+        <div class="m-2"></div>
+        <div class="col-md-12">
+            @Html.LabelFor(temp => temp.Email, "Email:")
+            <div class="m-2"></div>
+            @Html.TextBoxFor(temp => temp.Email, new { placehoder = "Email", @class = "form-control" })
+            @Html.ValidationMessageFor(temp => temp.Email)
+        </div>
+        <div class="m-2"></div>
+        <div class="col-md-12">
+            @Html.LabelFor(temp => temp.Password, "Mật khẩu:")
+            <div class="m-2"></div>
+            @Html.PasswordFor(temp => temp.Password, new { placehoder = "Password", @class = "form-control" })
+            @Html.ValidationMessageFor(temp => temp.Password)
+        </div>
+        <div class="m-2"></div>
+        <div class="col-md-12">
+            @Html.LabelFor(temp => temp.ConfirmPassword, "Xác nhận mật khẩu:")
+            <div class="m-2"></div>
+            @Html.PasswordFor(temp => temp.ConfirmPassword, new { placehoder = "Confirm Password", @class = "form-control" })
+            @Html.ValidationMessageFor(temp => temp.ConfirmPassword)
+        </div>
+        <div class="m-2"></div>
+        <div class="col-md-12">
+            @Html.LabelFor(temp => temp.Address, "Địa chỉ:")
+            <div class="m-2"></div>
+            @Html.TextBoxFor(temp => temp.Address, new { placehoder = "Địa chỉ", @class = "form-control" })
+            @Html.ValidationMessageFor(temp => temp.Address)
+        </div>
+        <div class="m-2"></div>
+        <div class="col-md-12">
+            @Html.LabelFor(temp => temp.Birthday, "Ngày sinh:")
+            <div class="m-2"></div>
+            @Html.TextBoxFor(temp => temp.Birthday, new { placehoder = "Ngày sinh", @class = "form-control", type = "date" })
+            @Html.ValidationMessageFor(temp => temp.Birthday)
+        </div>
+        
+        <div class="m-3">
+            <button type="submit" class="btn btn-success">Đăng kí</button>
+        </div>
+    </div>
+}    

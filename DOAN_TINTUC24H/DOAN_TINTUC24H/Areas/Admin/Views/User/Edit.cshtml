@@ -1,0 +1,56 @@
+﻿@model DOAN_TINTUC24H.Identity.AppUser
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h1>Chỉnh sửa người dùng</h1>
+@using (Html.BeginForm("Edit", "User", new { area = "Admin" }, FormMethod.Post, new { enctype = "multipart/dorm-data", id = Model.Id, Controller = "User" }))
+{ 
+        <input type="hidden" name="matg" value="@Model.Id">
+        <div class="row">
+        <div class="col-md-6 m-2">
+            <label for="Name">Tên tài khoản</label>
+            <input type="text"
+                   class="form-control"
+                   id="UserName"
+                   name="UserName"
+                   placeholder="Tài khoản"
+                   value="@Model.UserName" />
+            @Html.ValidationMessageFor(row => row.UserName)
+        </div>
+        <div class="col-md-6 m-2">
+            @Html.LabelFor(row => row.Email, "Email")
+            <input type="text"
+                   class="form-control"
+                   id="Email"
+                   name="Email"
+                   placeholder="Email"
+                   value="@Model.Email" />
+
+            @Html.ValidationMessageFor(row => row.Email)
+        </div>
+        <div class="col-md-6 m-2">
+            @Html.LabelFor(row => row.Birthday, "Ngày sinh")
+            <input type="date"
+                   class="form-control"
+                   id="Birthday"
+                   name="Birthday"
+                   placeholder="Ngày sinh"
+                   value="@Model.Birthday" />
+            @Html.ValidationMessageFor(row => row.Birthday)
+        </div>
+        <div class="col-md-6 m-2">
+            @Html.LabelFor(row => row.Address, "Địa Chỉ")
+            <input type="text"
+                   class="form-control"
+                   id="Address"
+                   name="Address"
+                   placeholder="Địa Chỉ"
+                   value="@Model.Address" />
+            @Html.ValidationMessageFor(row => row.Address)
+        </div>
+    </div>
+    <button type="submit" class="btn btn-success m-2 ">Save</button>
+    <a href="/Admin/User/index" class="btn btn-danger m-2">Cancel</a>
+
+}

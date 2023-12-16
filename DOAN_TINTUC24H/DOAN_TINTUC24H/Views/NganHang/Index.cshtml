@@ -1,0 +1,88 @@
+﻿@model List<DOAN_TINTUC24H.Models.TinTuc>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+<h1>Ngân Hàng</h1>
+<select id="sortDrop" class="m-3">
+    <option value="">Chọn...</option>
+    <option value="ngaydang" id="ngaydang">Tin tức mới nhất</option>
+    <option value="tieude" id="tieude">Từ a-z</option>
+
+</select>
+<div class="container">
+    @foreach (var item in Model)
+    {
+        if (item.maTL == 3)
+        {
+            <a href="/TinTuc/Detail/@item.maTinTuc">
+                <div class="card mb-3" style="max-width: 660px; border:none; ">
+                    <h5 class="card-title" style="font-weight:bold;">@item.tieuDe</h5>
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="~/img/@item.hinh1" class="img-fluid rounded-start">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                @*<h5 class="card-title" style="font-weight:bold;">@item.tieuDe</h5>*@
+                                <p class="card-text">@item.doan1</p>
+                                <p class="card-text"><small class="text-muted">@item.ngayDang</small></p>
+                            </div>
+                        </div>
+                    </div>
+                    <p style="color:wheat">------------------------------------------------------------------------------</p>
+                </div>
+            </a>
+        }
+    }
+    <tr>
+        <td colspan="6">
+            @{
+                int PrevPage = ViewBag.Page - 1;
+                if (PrevPage <= 0)
+                {
+                    PrevPage = 1;
+                }
+                int NextPage = ViewBag.Page + 1;
+                if (NextPage > ViewBag.Noofpage)
+                {
+                    NextPage = ViewBag.Noofpage;
+                }
+            }
+            <ul class="pagination justify-content-center">
+                <li class="page-item ">
+
+                    <a class="page-link" href="/NganHang/index/?sort=value&page=@PrevPage"><</a>
+                </li>
+                @for (int i = 0; i < ViewBag.Noofpage; i++)
+                {
+                    if (i + 1 == ViewBag.Page)
+                    {
+                        <li class="page-item active">
+
+                            <a class="page-link" href="/NganHang/index/?sort=value&page=@(i+1)">@(i + 1)</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="page-item ">
+                            <a class="page-link" href="/NganHang/index/?sort=value&page=@(i+1)">@(i + 1)</a>
+                        </li>
+                    }
+
+                }
+                <li class="page-item ">
+                    <a class="page-link" href="/NganHang/index/?sort=value&page=@NextPage">></a>
+                </li>
+            </ul>
+        </td>
+    </tr>
+</div>
+
+<script>
+    $('#sortDrop').change(function () {
+        const value = $('#sortDrop').val();
+        window.location.href = "/NganHang/Index/?sort=" + value + "&page=1";
+    });
+</script>
+

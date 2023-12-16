@@ -1,0 +1,32 @@
+﻿@model DOAN_TINTUC24H.Identity.AppUser
+
+@{
+    ViewBag.Title = "MyProfile";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h1>Thông tin cá nhân</h1>
+<table class="table">
+    <tbody>
+        <tr>
+            <th scope="row">Username</th>
+            <td>@Model.UserName</td>
+
+        </tr>
+        <tr>
+            <th scope="row">Email</th>
+            <td>@Model.Email</td>
+
+        </tr>
+        <tr>
+            <th scope="row">Date of Birth</th>
+            <td colspan="2">@Model.Birthday</td>
+
+        </tr>
+        <tr>
+            <th scope="row">Address</th>
+            <td colspan="2">@Model.Address</td>
+
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,111 @@
+﻿@model DOAN_TINTUC24H.Models.TinTuc
+
+@{
+    ViewBag.Title = "Edit";
+    
+}
+
+<h2>Edit</h2>
+@using (Html.BeginForm("Edit", "TinTuc",new {area = "Admin"}, FormMethod.Post, new { enctype = "multipart/dorm-data", id=Model.maTinTuc, Controller ="TinTuc" }))
+{
+    @Html.TextBoxFor(row => row.maTinTuc, new { @class = "form-control ", type = "hidden",value= Model.maTinTuc })
+    <div class="row" style="font-size:15px">
+        <div class="col-md-9">
+            @Html.LabelFor(row => row.tieuDe, "Tiêu Đề")
+            <div class=" m-2"></div>
+            @Html.TextAreaFor(row => row.tieuDe, new { @class = "form-control ", placeholder = "Tiêu đề...",value=Model.tieuDe })
+            @Html.ValidationMessageFor(row => row.tieuDe)
+        </div>
+        <div class=" m-2"></div>
+        <div class="col-md-9">
+            @Html.LabelFor(row => row.ngayDang, "Ngày")
+            <div class=" m-2"></div>
+            @Html.TextBoxFor(row => row.ngayDang, new { @class = "form-control ", placeholder = "Tiêu đề...", type = "date", value = Model.ngayDang.ToString() })
+            @Html.ValidationMessageFor(row => row.ngayDang)
+        </div>
+        <div class=" m-2"></div>
+        <div class=" col-md-9">
+            @Html.LabelFor(row => row.hinh1, "Hình 1")
+            <div class=" m-2"></div>
+            @*@Html.TextBoxFor(row => row.hinh1, new { @class = "form-control", type = "file", accept = "image/*", value = Model.hinh1.ToString() })*@
+            <input type="file"
+                   class="form-control"
+                   id="hinh1"
+                   name="hinh1"
+                   
+                   value="@Model.hinh1" />
+            @Html.ValidationMessageFor(row => row.hinh1)
+        </div>
+        <div class=" m-2"></div>
+        <div class=" col-md-9">
+            @Html.LabelFor(row => row.cthinh1, "Chú thích hình 1")
+            <div class=" m-2"></div>
+            @Html.TextAreaFor(row => row.cthinh1, new { @class = "form-control", placeholder = "Chú thích hình 1", value = Model.cthinh1 })
+            @Html.ValidationMessageFor(row => row.cthinh1)
+        </div>
+        <div class=" m-2"></div>
+        <div class=" col-md-9">
+            @Html.LabelFor(row => row.hinh1, "Hình 2")
+            <div class=" m-2"></div>
+            <input type="file"
+                   class="form-control"
+                   id="hinh2"
+                   name="hinh2"
+                   value="@Model.hinh2" />
+            @*@Html.TextBoxFor(row => row.hinh2, new { @class = "form-control", type = "file", accept = "image/*", value = Model.hinh2.ToString() })*@
+            @Html.ValidationMessageFor(row => row.hinh2)
+
+        </div>
+        <div class=" m-2"></div>
+        <div class=" col-md-9">
+            @Html.LabelFor(row => row.cthinh2, "Chú thích hình 2")
+            <div class=" m-2"></div>
+            @Html.TextAreaFor(row => row.cthinh2, new { @class = "form-control", placeholder = "Chú thích hình 2", value = Model.cthinh2 })
+            @Html.ValidationMessageFor(row => row.cthinh2)
+        </div>
+        <div class=" m-2"></div>
+        <div class=" col-md-9">
+            @Html.LabelFor(row => row.doan1, "Đoạn 1")
+            <div class=" m-2"></div>
+            @Html.TextAreaFor(row => row.doan1, new { @class = "form-control", placeholder = "Đoạn 1...", value = Model.doan1 })
+            @Html.ValidationMessageFor(row => row.doan1)
+        </div>
+        <div class=" m-2"></div>
+        <div class=" col-md-9">
+            @Html.LabelFor(row => row.doan2, "Đoạn 2")
+            <div class=" m-2"></div>
+            @Html.TextAreaFor(row => row.doan2, new { @class = "form-control", placeholder = "Đoạn 2...", value = Model.doan2 })
+            @Html.ValidationMessageFor(row => row.doan2)
+        </div>
+        <div class=" m-2"></div>
+        <div class=" col-md-9">
+            @Html.LabelFor(row => row.doan3, "Đoạn 3")
+            <div class=" m-2"></div>
+            @Html.TextAreaFor(row => row.doan3, new { @class = "form-control", placeholder = "Đoạn 3...", value = Model.doan3 })
+            @Html.ValidationMessageFor(row => row.doan3)
+        </div>
+        <div class=" m-2"></div>
+        <div class=" col-md-9">
+            <label for="TheLoai">Thể Loại</label>
+            <div class=" m-2"></div>
+            @Html.DropDownListFor(row => row.maTL, new SelectList(ViewBag.TheLoai, "maTL", "tenTL"), "Vui lòng chọn...", new { @class = "form-control", value = Model.TheLoai.tenTL})
+            @Html.ValidationMessageFor(row => row.maTL)
+        </div>
+        <div class=" m-2"></div>
+        <div class=" col-md-9">
+            <label for="TacGia">Tác Giả</label>
+            <div class=" m-2"></div>
+            @Html.DropDownListFor(row => row.maTG, new SelectList(ViewBag.TacGia, "maTG", "tenTG"), "Vui lòng chọn...", new { @class = "form-control", value = Model.TacGia.tenTG })
+            @Html.ValidationMessageFor(row => row.maTG)
+        </div>
+        <div class=" m-2"></div>
+        @Html.ValidationSummary()
+        <div class=" m-2"></div>
+        <div class="container">
+            <button type="submit" class="btn btn-success m-2 " style="width:200px;text-align:center;height:50px">Thêm bài viết</button>
+            <a href="/Admin/TinTuc" class="btn btn-danger" style="width: 100px; text-align: center; height: 50px">Cancel</a>
+        </div>
+        <div class=" m-4"></div>
+    </div>
+}
+

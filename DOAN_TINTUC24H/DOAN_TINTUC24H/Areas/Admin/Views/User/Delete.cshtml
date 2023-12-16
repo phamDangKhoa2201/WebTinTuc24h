@@ -1,0 +1,31 @@
+﻿@model DOAN_TINTUC24H.Identity.AppUser
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h1>Xóa người dùng</h1>
+<form action="/Admin/User/Delete/@Model.Id" method="post">
+    <input type="hidden" name="id" value="@Model.Id" />
+    <table class="table table-bordered">
+        <tr>
+            <th>Tên người dùng</th>
+            <th>Email</th>
+            <th>SĐT</th>
+            <th>Địa Chỉ</th>
+        </tr>
+       
+        <tr>
+
+            <td>@Model.UserName</td>
+            <td>@Model.Email</td>
+            <td>@Model.Birthday</td>
+            <td>@Model.Address</td>
+        </tr>
+        
+    </table>
+    <div class="m-3">
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <a href="/Admin/User" class="btn btn-dark">Cancel</a>
+    </div>
+</form>
+

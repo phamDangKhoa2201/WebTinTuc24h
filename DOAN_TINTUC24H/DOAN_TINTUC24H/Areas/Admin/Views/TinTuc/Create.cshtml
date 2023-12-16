@@ -1,0 +1,100 @@
+﻿@model DOAN_TINTUC24H.Models.TinTuc
+
+@{
+    ViewBag.Title = "Create";
+
+}
+
+<h1>Tạo Tin mới</h1>
+
+@using (Html.BeginForm("Create", "TinTuc",new {area ="Admin"} , FormMethod.Post, new { enctype = "multipart/dorm-data" }))
+{
+    <div class="row" style="font-size:15px;">
+        <div class="col-md-9">
+            
+            @Html.LabelFor(row => row.tieuDe, "Tiêu Đề")
+            <div class=" m-2"></div>
+            @Html.TextAreaFor(row => row.tieuDe, new { @class = "form-control ", placeholder = "Tiêu đề..." })
+            @Html.ValidationMessageFor(row => row.tieuDe)
+        </div>
+        <div class=" m-2"></div>
+        <div class="col-md-9">
+            @Html.LabelFor(row => row.ngayDang, "Ngày")
+            <div class=" m-2"></div>
+            @Html.TextBoxFor(row => row.ngayDang, new { @class = "form-control ", placeholder = "Tiêu đề...", type = "date" })
+            @Html.ValidationMessageFor(row => row.ngayDang)
+        </div>
+        <div class=" m-2"></div>
+        <div class=" col-md-9">
+            @Html.LabelFor(row => row.hinh1, "Hình 1")
+            <div class=" m-2"></div>
+            @Html.TextBoxFor(row => row.hinh1, new { @class = "form-control", type = "file", accept = "image/*" })
+            @Html.ValidationMessageFor(row => row.hinh1)
+        </div>
+        <div class=" m-2"></div>
+        <div class=" col-md-9">
+            @Html.LabelFor(row => row.cthinh1, "Chú thích hình 1")
+            <div class=" m-2"></div>
+            @Html.TextAreaFor(row => row.cthinh1, new { @class = "form-control", placeholder = "Chú thích hình 1" })
+            @Html.ValidationMessageFor(row => row.cthinh1)
+        </div>
+        <div class=" m-2"></div>
+        <div class=" col-md-9">
+            @Html.LabelFor(row => row.hinh1, "Hình 2")
+            <div class=" m-2"></div>
+            @Html.TextBoxFor(row => row.hinh2, new { @class = "form-control", type = "file", accept = "image/*" })
+            @Html.ValidationMessageFor(row => row.hinh2)
+
+        </div>
+        <div class=" m-2"></div>
+        <div class=" col-md-9">
+            @Html.LabelFor(row => row.cthinh2, "Chú thích hình 2")
+            <div class=" m-2"></div>
+            @Html.TextAreaFor(row => row.cthinh2, new { @class = "form-control", placeholder = "Chú thích hình 2" })
+            @Html.ValidationMessageFor(row => row.cthinh2)
+        </div>
+        <div class=" m-2"></div>
+        <div class=" col-md-9">
+            @Html.LabelFor(row => row.doan1, "Đoạn 1")
+            <div class=" m-2"></div>
+            @Html.TextAreaFor(row => row.doan1, new { @class = "form-control", placeholder = "Đoạn 1..." })
+            @Html.ValidationMessageFor(row => row.doan1)
+        </div>
+        <div class=" m-2"></div>
+        <div class=" col-md-9">
+            @Html.LabelFor(row => row.doan2, "Đoạn 2")
+            <div class=" m-2"></div>
+            @Html.TextAreaFor(row => row.doan2, new { @class = "form-control", placeholder = "Đoạn 2..." })
+            @Html.ValidationMessageFor(row => row.doan2)
+        </div>
+        <div class=" m-2"></div>
+        <div class=" col-md-9">
+            @Html.LabelFor(row => row.doan3, "Đoạn 3")
+            <div class=" m-2"></div>
+            @Html.TextAreaFor(row => row.doan3, new { @class = "form-control", placeholder = "Đoạn 3..." })
+            @Html.ValidationMessageFor(row => row.doan3)
+        </div>
+        <div class=" m-2"></div>
+        <div class=" col-md-9">
+            <label for="TheLoai">Thể Loại</label>
+            <div class=" m-2"></div>
+            @Html.DropDownListFor(row => row.maTL, new SelectList(ViewBag.TheLoai, "maTL", "tenTL"), "Vui lòng chọn...", new { @class = "form-control" })
+            @Html.ValidationMessageFor(row => row.maTL)
+        </div>
+        <div class=" m-2"></div>
+        <div class=" col-md-9">
+            <label for="TacGia">Tác Giả</label>
+            <div class=" m-2"></div>
+            @Html.DropDownListFor(row => row.maTG, new SelectList(ViewBag.TacGia, "maTG", "tenTG"), "Vui lòng chọn...", new { @class = "form-control" })
+            @Html.ValidationMessageFor(row => row.maTG)
+        </div>
+        <div class=" m-2"></div>
+        @Html.ValidationSummary()
+        <div class=" m-2"></div>
+        <div class="container">
+            <button type="submit" class="btn btn-success m-2 " style="width:200px;text-align:center;height:50px">Thêm bài viết</button>
+            <a href="/Admin/TinTuc" class="btn btn-danger" style="width: 100px; text-align: center; height: 50px">Cancel</a>
+        </div>
+        <div class=" m-4"></div>
+    </div>
+}    

@@ -1,0 +1,34 @@
+﻿@model List<DOAN_TINTUC24H.Models.TacGia>
+@{
+    ViewBag.Title = "Index";
+   
+}
+
+<h1>Tác Giả</h1>
+<div class="container">
+    <a href="/admin/TacGia/Create" style="font-size:15px">Thêm Mới Tác Giả</a>
+    <div class="m-3"></div>
+    <table class="table">
+        <tr>
+            <th>Tên Tác Giả</th>
+            <th>Email</th>
+            <th>SĐT</th>
+            <th>Địa Chỉ</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>@item.tenTG</td>
+                <td>@item.Email</td>
+                <td>@item.SDT</td>
+                <td>@item.diaChi</td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.maTG, Controller = "TacGia", area = "Admin" }) 
+                   
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+

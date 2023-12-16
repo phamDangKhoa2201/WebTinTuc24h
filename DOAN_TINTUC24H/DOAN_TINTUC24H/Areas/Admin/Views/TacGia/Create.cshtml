@@ -1,0 +1,36 @@
+﻿@model DOAN_TINTUC24H.Models.TacGia
+@{
+    ViewBag.Title = "Create";
+
+}
+
+<h2 class="m-2">Tạo Mới Tác Giả</h2>
+
+@using (Html.BeginForm("Create", "TacGia",new { area = "Admin"}, FormMethod.Post, new { enctype = "multipart/dorm-data" }))
+{
+    <div class="row">
+        <div class="col-md-6 m-2">
+            @Html.LabelFor(row => row.tenTG, "Họ và Tên")
+            @Html.TextBoxFor(row => row.tenTG, new { @class = "form-control ", placeholder = "Họ Tên" })
+            @Html.ValidationMessageFor(row => row.tenTG)
+        </div>
+        <div class="col-md-6 m-2">
+            @Html.LabelFor(row => row.Email, "Email")
+            @Html.TextBoxFor(row => row.Email, new { @class = "form-control ", placeholder = "Email" })
+            @Html.ValidationMessageFor(row => row.Email)
+        </div>
+        <div class="col-md-6 m-2">
+            @Html.LabelFor(row => row.SDT, "Số Điện Thoại")
+            @Html.TextBoxFor(row => row.SDT, new { @class = "form-control ", placeholder = "Số ĐT" })
+            @Html.ValidationMessageFor(row => row.SDT)
+        </div>
+        <div class="col-md-6 m-2">
+            @Html.LabelFor(row => row.diaChi, "Địa Chỉ")
+            @Html.TextBoxFor(row => row.diaChi, new { @class = "form-control ", placeholder = "Địa Chỉ" })
+            @Html.ValidationMessageFor(row => row.diaChi)
+        </div>
+    </div>
+    @Html.ValidationSummary()
+    <button type="submit" class="btn btn-success m-2">Create</button>
+    <a href="/Admin/TacGia/index" class="btn btn-danger m-2">Cancel</a>
+}

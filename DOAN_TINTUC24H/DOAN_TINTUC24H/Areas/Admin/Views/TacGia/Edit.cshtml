@@ -1,0 +1,55 @@
+﻿@model DOAN_TINTUC24H.Models.TacGia
+@{
+    ViewBag.Title = "Edit";
+    
+}
+
+<h2>Edit</h2>
+<form action="admin/TacGia/Edit/@Model.maTG" method="post">
+    <input type="hidden" name="matg" value="@Model.maTG">
+    <div class="row">
+        <div class="col-md-6 m-2">
+            <label for="Name">Họ và Tên</label>
+            <input type="text"
+                   class="form-control"
+                   id="tenTG"
+                   name="tenTG"
+                   placeholder="Họ Tên"
+                   value="@Model.tenTG" />
+            @Html.ValidationMessageFor(row => row.tenTG)
+        </div>
+        <div class="col-md-6 m-2">
+            @Html.LabelFor(row => row.Email, "Email")
+            <input type="text"
+                   class="form-control"
+                   id="Email"
+                   name="Email"
+                   placeholder="Email"
+                   value="@Model.Email" />
+
+            @Html.ValidationMessageFor(row => row.Email)
+        </div>
+        <div class="col-md-6 m-2">
+            @Html.LabelFor(row => row.SDT, "Số Điện Thoại")
+            <input type="text"
+                   class="form-control"
+                   id="SDT"
+                   name="SDT"
+                   placeholder="Số ĐT"
+                   value="@Model.SDT" />
+            @Html.ValidationMessageFor(row => row.SDT)
+        </div>
+        <div class="col-md-6 m-2">
+            @Html.LabelFor(row => row.diaChi, "Địa Chỉ")
+            <input type="text"
+                   class="form-control"
+                   id="diaChi"
+                   name="diaChi"
+                   placeholder="Địa Chỉ"
+                   value="@Model.diaChi" />
+            @Html.ValidationMessageFor(row => row.diaChi)
+        </div>
+    </div>
+    <button type="submit" class="btn btn-success m-2 ">Save</button>
+    <a href="/Admin/Tacgia/index" class="btn btn-danger m-2">Cancel</a>
+</form>

@@ -1,0 +1,26 @@
+﻿@model List<DOAN_TINTUC24H.Models.TheLoai>
+
+@{
+    ViewBag.Title = "Index";
+  
+}
+
+<h2>Thể loại</h2>
+<div class="container">
+    <table class="table">
+        <tr>
+            <th>STT</th>
+            <th>Tên Thể Loại</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.maTL</td>
+                <td>@item.tenTL</td>
+                
+            </tr>
+        }
+    </table>
+</div>
+
+

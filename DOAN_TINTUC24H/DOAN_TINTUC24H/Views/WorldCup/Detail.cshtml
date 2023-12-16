@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_LayoutPage2.cshtml";
+}
+
+<div class="container" style="font-size:15px;">
+    <h2 class="col-8" style="font-size:20px;">@Model.tieuDe</h2>
+    <p class="card-text"><small class="text-muted">@Model.ngayDang | @Model.TheLoai.tenTL | Tác giả: @Model.TacGia.tenTG</small></p>
+    <div class="container-sm row">
+
+        <p class="col-7 lh-base" style="padding:7px; font-weight:bold;text-indent:25px">@Model.doan1</p>
+
+        <div style=" max-width:660px">
+            <img style="padding:7px;" src="~/img/@Model.hinh1" />
+            <p class="card-text" style=" position:relative;text-align:center"><small class="text-muted">@Model.cthinh1</small></p>
+        </div>
+        <p class="col-7 lh-base" style="padding: 7px; text-indent: 25px;white-space:pre-line;">@Model.doan2</p>
+
+        @if (Model.hinh2 != null)
+        {
+            <div style="max-width:660px">
+                <img style="padding:7px" src="~/img/@Model.hinh2" />
+
+                <p class="card-text" style="text-align:center"><small class="text-muted">@Model.cthinh2</small></p>
+            </div>
+        }
+        <br /> <p class="col-7 lh-base" style="padding: 7px; text-indent: 25px;white-space:pre-line">@Model.doan3</p>
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label" style="max-width:660px">Bình luận</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
+    <div class="m-3"></div>
+    <button type="submit" class="btn btn-success">Gửi</button>
+    <div class="m-3"></div>
+</div>
+

@@ -1,0 +1,23 @@
+﻿@model DOAN_TINTUC24H.Models.TinTuc
+
+@{
+    ViewBag.Title = "Delete";
+    
+}
+
+<h1>Xóa tin tức</h1>
+<form action="/Admin/TinTuc/Delete/@Model.maTinTuc" method="post">
+    <input type="hidden" name="id" value="@Model.maTinTuc" />
+    <div class="container">
+        <h2 class="col-8" style="font-size:20px;">@Model.tieuDe</h2>
+        <p class="card-text"><small class="text-muted">@Model.ngayDang | @Model.TheLoai.tenTL | Tác giả: @Model.TacGia.tenTG</small></p>
+        <div style=" max-width:660px">
+            <img style="padding:7px;" src="~/img/@Model.hinh1" />
+            
+        </div>
+    </div>
+    <div class="m-3">
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <a href="/Admin/TinTuc" class="btn btn-dark">Cancel</a>
+    </div>
+</form>

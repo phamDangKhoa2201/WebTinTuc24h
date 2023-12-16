@@ -1,0 +1,32 @@
+﻿@model List<DOAN_TINTUC24H.Identity.AppUser>
+@{
+    ViewBag.Title = "Users";
+}
+
+<h1>Người Dùng</h1>
+<div class=" m-3">
+    <a href="/Account/Register" style="font-size:15px">Thêm 1 người dùng mới</a>
+</div>
+<table class="table table-bordered">
+    <tr>
+        <th>Tên người dùng</th>
+        <th>Email</th>
+        <th>SĐT</th>
+        <th>Địa Chỉ</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>@item.UserName</td>
+            <td>@item.Email</td>
+            <td>@item.Birthday</td>
+            <td>@item.Address</td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id, Controller = "User", area = "Admin" }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id, Controller = "User", area = "Admin" })
+            </td>
+        </tr>
+    }
+</table>
+
